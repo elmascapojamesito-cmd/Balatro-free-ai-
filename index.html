@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Balatro — Final (multi-file)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Balatro — Versión Final</h1>
+      <div class="top-right">
+        <button id="viewDeckBtn">📜 Ver Mazo</button>
+        <div class="status">
+          <span>Ronda:<b id="round">1</b></span>
+          <span>Ciega:<b id="blind">200</b></span>
+          <span>Fichas:<b id="accum">0</b></span>
+          <span>Manos:<b id="handsLeft">4</b></span>
+          <span>Descartes:<b id="discardsLeft">3</b></span>
+          <span>Dinero:$<b id="money">4</b></span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="board">
+        <h2>Tu mano (8 cartas)</h2>
+        <div id="playerHand" class="hand"></div>
+
+        <div class="controls">
+          <button id="discardSelected" class="btn">Descartar seleccionadas</button>
+          <button id="playHand" class="btn primary">Jugar mano</button>
+          <button id="endRound" class="btn">Terminar ronda</button>
+        </div>
+
+        <div class="subpanel">
+          <div>
+            <h3>Última mano</h3>
+            <div id="lastHand" class="hand small"></div>
+          </div>
+          <div>
+            <h3>Jokers activos (máx 5)</h3>
+            <div id="jokerArea" class="joker-area"></div>
+            <div class="note">Nota: la descripción del efecto aparece en el cuadro.</div>
+          </div>
+        </div>
+
+        <div>
+          <h3>Registro</h3>
+          <div id="log" class="log"></div>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <div class="panel">
+          <h3>Controles</h3>
+          <button id="newGame" class="btn">Nueva partida</button>
+          <button id="chooseDeck" class="btn">Elegir mazo</button>
+          <button id="shuffleDeck" class="btn">Barajar mazo</button>
+          <button id="openShop" class="btn">Abrir tienda</button>
+        </div>
+
+        <div class="panel">
+          <h3>Información</h3>
+          <p>8 cartas • 3 descartes por ronda (se reinician) • Juega 1–5 cartas (Flush/Straight/StraightFlush requieren 5)</p>
+        </div>
+
+        <div class="panel">
+          <h3>Inventario: Vouchers</h3>
+          <div id="voucherInventory"></div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>Balatro — Hecho para jugar localmente</footer>
+  </div>
+
+  <!-- Modals -->
+  <div id="deckModal" class="modal">
+    <div class="modal-content">
+      <h2>Selecciona tu mazo</h2>
+      <div class="deck-grid" id="deckSelect">
+        <!-- llenado dinámico -->
+      </div>
+      <button id="closeDeckModal" class="btn">Cerrar</button>
+    </div>
+  </div>
+
+  <div id="shopModal" class="modal">
+    <div class="modal-content big">
+      <h2>Tienda</h2>
+      <div class="shop-columns">
+        <div>
+          <h3>Comodines</h3>
+          <div id="shopJokers"></div>
+        </div>
+        <div>
+          <h3>Vouchers</h3>
+          <div id="shopVouchers"></div>
+        </div>
+      </div>
+      <div class="shop-bottom">
+        <div>Dinero: $<span id="shopMoney">0</span></div>
+        <button id="closeShop" class="btn">Continuar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="viewDeckModal" class="modal">
+    <div class="modal-content big">
+      <h2>Mi Mazo (contenido actual)</h2>
+      <div id="deckList" class="deck-list"></div>
+      <button id="closeDeckView" class="btn">Cerrar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
